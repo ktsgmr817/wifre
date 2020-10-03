@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :university, presence: true
 
   #step2
-  validates :email, presence: true
+  validates :email, presence: true#, uniqueness: { case_sensitive: false }
 
   #step3
   validates :nickname, presence: true
