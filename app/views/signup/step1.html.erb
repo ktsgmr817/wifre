@@ -1,0 +1,17 @@
+<h2>新規登録1</h2>
+
+<%= form_for(@user, as: :user, url: step2_signup_index_path, method: :get) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @user %>
+
+  <div class="field">
+    <%= f.label :あなたの大学を教えてください %><br />
+    <%= f.text_field :university, autofocus: true, placeholder: "入力すると候補が表示されます" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "次へ" %>
+  </div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>
