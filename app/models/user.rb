@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :timeoutable, :trackable
 
+  belongs_to :university
+
 
   #step1
-  validates :university, presence: true
+  validates :university_id, presence: true
 
   #step2
   validates :email, presence: true#, uniqueness: { case_sensitive: false }

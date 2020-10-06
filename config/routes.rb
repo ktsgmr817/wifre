@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
 
-  devise_for :users, controllers: { registrations: 'users/registrations' }
+  devise_for :users, controllers: { registrations: 'users/registrations',
+                                    sessions: 'users/sessions' }
 
   devise_scope :user do
     get 'signup/step1', to: 'users/registrations#step1', as: :step1_signup_index
@@ -12,14 +13,6 @@ Rails.application.routes.draw do
   end
 
   get "users/show" => "users#show"
-
-  #resources :signup do
-  #  collection do
-  #    get 'step1'
-  #    get 'step2'
-  #    get 'step3'
-  #    get 'done'
-  #  end
-  #end
+  get "users/index" => "users#index"
 
 end

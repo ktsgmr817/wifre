@@ -17,12 +17,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def step2
-    session[:university] = user_params[:university]
+    session[:university_id] = user_params[:university_id]
+    @University = University.find_by(id: session[:university_id])
+    session[:domain] = @University.domain
     @user = User.new
   end
 
   def step3
-    session[:email] = user_params[:email]
+    session[:email] = user_params[:email_account] + session[:domain]
     session[:password] = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
     @user = User.new
@@ -30,7 +32,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(
-      university: session[:university],
+      university_id: session[:university_id],
       email: session[:email],
       password: session[:password],
       password_confirmation: session[:password_confirmation],
@@ -52,14 +54,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def done
-    
+
   end
 
 
   def validates_step1
-    session[:university] = user_params[:university]
+    session[:university_id] = user_params[:university_id]
     @user = User.new(
-      university: session[:university],
+      university_id: session[:university_id],
       email: "xxxxxx@xxxxx",
       password: "password",
       password_confirmation: "password",
@@ -76,11 +78,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def validates_step2
-    session[:email] = user_params[:email]
+    session[:email] = user_params[:email_account] + session[:domain]
     session[:password] = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
     @user = User.new(
-      university: "ウィフレ大学",
+      university_id: 1,
       email: session[:email],
       password: session[:password],
       password_confirmation: session[:password_confirmation],
@@ -99,69 +101,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
   def user_params
     params.require(:user).permit(
-      :university, :email, :password, :password_confirmation,
+      :university_id, :email_account, :email, :password, :password_confirmation,
       :nickname, :lastname, :firstname, :birth_date,
       :sex, :grade, :faculty, :department
     )
   end
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-  # POST /resource
-  # def create
-  #   super
-  # end
-
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
-
-  # PUT /resource
-  # def update
-  #   super
-  # end
-
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
-
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
 
   protected
+
+  #def after_inactive_sign_up_path_for(resource)
+    #edit_user_registration_path(resource)
+  #end
+
   def update_resource(resource, params)
     resource.update_without_password(params)
   end

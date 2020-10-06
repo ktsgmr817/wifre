@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WifreApp</title>
+    <title>WIFRE(ウィフレ)</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,10 +12,11 @@
     <header>
         <nav>
             <% if user_signed_in? %>
-              <strong><%= link_to current_user.nickname, '#' %></strong>
-              <%= link_to 'プロフィール変更', edit_user_registration_path %>
+              <%= link_to '友達探し', users_index_path %>
+              <%= link_to 'マイページ編集', edit_user_registration_path %>
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
             <% else %>
+              <%= link_to 'ホーム', root_path %>
               <%= link_to '新規登録', step1_signup_index_path %>
               <%= link_to 'ログイン', new_user_session_path %>
             <% end %>

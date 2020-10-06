@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 class Users::ConfirmationsController < Devise::ConfirmationsController
+
+  #def after_inactive_sign_up_path_for(resource)
+    #edit_user_registration_path
+  #end
+
+
   # GET /resource/confirmation/new
   # def new
   #   super

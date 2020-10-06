@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :あなたの大学を教えてください %><br />
-    <%= f.text_field :university, autofocus: true, placeholder: "入力すると候補が表示されます" %>
+    <%= f.select :university_id, { '大阪大学': 1, '関西大学': 2, '神戸大学': 3 }, include_blank: '選択してください' %>
   </div>
 
   <div class="actions">
@@ -13,5 +13,3 @@
   </div>
 
 <% end %>
-
-<%= render "devise/shared/links" %>

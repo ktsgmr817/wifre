@@ -1,0 +1,5 @@
+<h1><%= current_user.university %></h1>
+
+<% @users.each do |u| %>
+  <%= link_to u.nickname, users_show_path(u.id) %>
+<% end %>

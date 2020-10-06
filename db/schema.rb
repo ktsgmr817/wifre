@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201002084642) do
+ActiveRecord::Schema.define(version: 20201005064859) do
+
+  create_table "universities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "university_name"
+    t.string "domain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -33,7 +40,6 @@ ActiveRecord::Schema.define(version: 20201002084642) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname"
-    t.string "university"
     t.date "birth_date"
     t.integer "sex"
     t.integer "grade"
@@ -41,10 +47,15 @@ ActiveRecord::Schema.define(version: 20201002084642) do
     t.string "department"
     t.string "firstname"
     t.string "lastname"
+    t.bigint "university_id"
+    t.integer "birth_place"
+    t.string "email_account"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["university_id"], name: "index_users_on_university_id"
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "users", "universities"
 end
