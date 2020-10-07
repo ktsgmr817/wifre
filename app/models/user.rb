@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   belongs_to :university
 
+  mount_uploader :image, ImageUploader
 
   #step1
   validates :university_id, presence: true

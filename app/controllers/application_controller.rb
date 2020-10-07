@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       ])
     # アカウント編集の時にストロングパラメータを追加
     devise_parameter_sanitizer.permit(:account_update, keys: [
-      :nickname
+      :nickname, :image
       #, :lastname, :firstname, :university, :birth_date, :sex, :grade,
       #:faculty, :department
       ])
