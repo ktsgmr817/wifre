@@ -1,5 +1,6 @@
-<h1><%= current_user.university %></h1>
+<h1><%= @university.university_name %></h1>
 
 <% @users.each do |u| %>
-  <%= link_to u.nickname, users_show_path(u.id) %>
+  <img src=<%= u.image %> class = "icon_image">
+  <%= link_to u.nickname, u %>
 <% end %>

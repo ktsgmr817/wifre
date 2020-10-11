@@ -12,7 +12,16 @@ Rails.application.routes.draw do
     get 'signup/done', to: 'users/registrations#done', as: :done_signup_index
   end
 
-  get "users/show" => "users#show"
-  get "users/index" => "users#index"
+  resources :users
+
+  resources :users do
+    member do
+      get :following, :followers, :users_tweets
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
+
+  #get "users/show" => "users#show"
+  #get "users/index" => "users#index"
 
 end

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201006065444) do
+ActiveRecord::Schema.define(version: 20201011073210) do
+
+  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+    t.index ["following_id"], name: "index_relationships_on_following_id"
+  end
 
   create_table "universities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "university_name"
@@ -48,7 +58,6 @@ ActiveRecord::Schema.define(version: 20201006065444) do
     t.string "firstname"
     t.string "lastname"
     t.bigint "university_id"
-    t.integer "birth_place"
     t.string "email_account"
     t.string "image"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

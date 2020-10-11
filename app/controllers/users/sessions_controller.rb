@@ -7,7 +7,7 @@ class Users::SessionsController < Devise::SessionsController
     if resource.sign_in_count == 1
       edit_user_registration_path
     else
-      users_show_path
+      users_path
     end
   end
 
