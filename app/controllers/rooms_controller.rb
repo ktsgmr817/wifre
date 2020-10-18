@@ -11,6 +11,7 @@ class RoomsController < ApplicationController
         @room = Room.find(params[:id])
         if Entry.where(:user_id => current_user.id, :room_id => @room.id).present?
             @messages = @room.messages
+            Message.update_read_flag(@messages, current_user.id)
             @message = Message.new
             @entries = @room.entries
         else
