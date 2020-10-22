@@ -1,6 +1,20 @@
 <h2>マイページ編集</h2>
 
-<img src=<%= @user.image %> class = "icon_image">
+<img src=<%= @user.image %> class = "icon_image"><br />
+
+<%= @user.grade %>年生
+
+<% if @user.sex == 0 %>
+  <p>男性</p>
+<% elsif @user.sex == 1 %>
+  <p>女性</p>
+<% elsif @user.sex == 2 %>
+  <p>その他</p>
+<% else %>
+  <p>未回答</p>
+<% end %>
+
+<%= @user.faculty %> <%= @user.department %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -15,11 +29,24 @@
     <%= f.file_field :image %>
   </div>
 
+  <div class="field">
+    <%= f.label :趣味 %><br />
+    <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :hobbyname) do |b| %>
+      <%= b.label { b.check_box + b.text } %><br />
+    <% end %>
+  </div>
 
-
+  <div class="field">
+    <%= f.label :友達が欲しい授業 %><br />
+    <%= f.text_field :commonclass1, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass2, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass3, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass4, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass5, autofocus: true, placeholder: "正確に入力してください。" %><br />
+  </div>
 
   <div class="actions">
-    <%= f.submit "プロフィール保存" %>
+    <%= f.submit "プロフィール変更" %>
   </div>
 <% end %>
 

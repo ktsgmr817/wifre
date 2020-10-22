@@ -42,6 +42,9 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 
 gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'nested_form_fields'
 
 
 group :development, :test do

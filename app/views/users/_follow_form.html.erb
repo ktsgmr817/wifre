@@ -1,7 +1,15 @@
 <% unless current_user.id == user.id %>
   <% if current_user.following?(user) %>
-    <%= render 'users/unfollow', user: user %>
+    <% if user.following?(current_user) %>
+      <%= render 'users/unfollow', user: user %>
+    <% else %>
+      <%= render 'users/applied', user: user %>
+    <% end %>
   <% else %>
-    <%= render 'users/follow', user: user %>
+    <% if user.following?(current_user) %>
+      <%= render 'users/approve', user: user %>
+    <% else %>
+      <%= render 'users/follow', user: user %>
+    <% end %>
   <% end %>
 <% end %>
