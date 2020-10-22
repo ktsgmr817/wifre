@@ -1,0 +1,15 @@
+<h2>共通項目設定</h2>
+<p>※後で変更できます。</p>
+
+<%= form_for(@user, url: commonphasethird_users_path, method: :post) do |f| %>
+
+  <%= f.label :趣味 %><br />
+  <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :hobbyname) do |b| %>
+    <%= b.label { b.check_box + b.text } %><br />
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "プロフィール設定" %>
+  </div>
+
+<% end %>

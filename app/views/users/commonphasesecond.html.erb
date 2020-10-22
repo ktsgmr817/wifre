@@ -1,0 +1,19 @@
+<h2>共通項目設定</h2>
+<p>※後で変更できます。</p>
+
+<%= form_for(@user, url: commonphasesecond_users_path, method: :post) do |f| %>
+
+  <div class="field">
+    <%= f.label :友達が欲しい授業（5つまで） %><span>必須</span><br />
+    <%= f.text_field :commonclass1, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass2, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass3, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass4, autofocus: true, placeholder: "正確に入力してください。" %><br />
+    <%= f.text_field :commonclass5, autofocus: true, placeholder: "正確に入力してください。" %><br />
+  </div>
+
+  <div class="actions">
+    <%= f.submit "次へ" %>
+  </div>
+
+<% end %>

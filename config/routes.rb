@@ -12,6 +12,17 @@ Rails.application.routes.draw do
     get 'signup/done', to: 'users/registrations#done', as: :done_signup_index
   end
 
+  resources :users do
+    collection do
+      get :commonphasefirst
+      post :commonphasefirst, to: 'users#create_commonphasefirst'
+      get :commonphasesecond
+      post :commonphasesecond, to: 'users#create_commonphasesecond'
+      get :commonphasethird
+      post :commonphasethird, to: 'users#create_commonphasethird'
+    end
+  end
+
   resources :users
 
   resources :users do
@@ -19,9 +30,7 @@ Rails.application.routes.draw do
       get :following, :followers, :users_tweets
     end
   end
-  resources :relationships, only: [:create, :destroy]
 
-  #get "users/show" => "users#show"
-  #get "users/index" => "users#index"
+  resources :relationships, only: [:create, :destroy]
 
 end

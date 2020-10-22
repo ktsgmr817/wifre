@@ -1,11 +1,45 @@
-<h1><%= @user.nickname %></h1>
-
-<img src=<%= @user.image %> class = "icon_image">
+<%= link_to "戻る", :back %>
 
 <span id="user_<%= @user.id %>" class="follow-wrapper">
   <%= render 'follow_form', user: @user if signed_in? %>
 </span>
 
-<h4>
-  <!-- render 'users/stats' -->
-</h4>
+<h1><%= @user.nickname %></h1>
+
+<img src=<%= @user.image %> class = "icon_image">
+
+<%= @user.grade %>年生
+
+<% if @user.sex == 0 %>
+  <p>男性</p>
+<% elsif @user.sex == 1 %>
+  <p>女性</p>
+<% elsif @user.sex == 2 %>
+  <p>その他</p>
+<% else %>
+  <p>未回答</p>
+<% end %>
+
+<%= @user.faculty %><span>学部 </span><%= @user.department %><br />
+
+<label for="birth_place">出身地</label><br />
+<%= @user.birth_place %><br>
+
+<label for="user_hobby">趣味</label><br />
+<% @userhobbies.each do |userhobby| %>
+  <% hobby = Hobby.find(userhobby.hobby_id) %>
+  <%= hobby.hobbyname %><br>
+<% end %><br>
+
+<label for="commonclass">友達が欲しい授業</label><br />
+<% if !@user.commonclass1.nil? %>
+  <%= @user.commonclass1 %>
+<% elsif !@user.commonclass2.nil? %>
+  <%= @user.commonclass2 %>
+<% elsif !@user.commonclass3.nil? %>
+  <%= @user.commonclass3 %>
+<% elsif !@user.commonclass4.nil? %>
+  <%= @user.commonclass4 %>
+<% else %>
+  <%= @user.commonclass5 %>
+<% end %>

@@ -6,6 +6,7 @@ class RelationshipsController < ApplicationController
       format.html { redirect_to @user }
       format.js
     end
+    FriendMailer.send_when_requested(@user).deliver
   end
 
   def destroy
