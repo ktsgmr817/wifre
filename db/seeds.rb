@@ -1,5 +1,6 @@
 University.create!(university_name: "大阪大学", domain: "@ecs.osaka-u.ac.jp")
 
+
 Hobby.create!(hobbyname: "野球")
 Hobby.create!(hobbyname: "サッカー")
 Hobby.create!(hobbyname: "テニス")
@@ -66,6 +67,7 @@ Hobby.create!(hobbyname: "バイク")
 Hobby.create!(hobbyname: "筋トレ")
 Hobby.create!(hobbyname: "イラスト")
 
+
 user = User.new(
   email: 'u120837h@ecs.osaka-u.ac.jp', nickname: '大ちゃん', university_id: 1,
   password: 'password', password_confirmation: 'password',
@@ -74,6 +76,7 @@ user = User.new(
 )
 user.skip_confirmation!
 user.save!
+
 
 user = User.new(
     email: 'u234098h@ecs.osaka-u.ac.jp', nickname: 'みさ', university_id: 1,
@@ -84,6 +87,7 @@ user = User.new(
 user.skip_confirmation!
 user.save!
 
+
 user = User.new(
     email: 'u123137h@ecs.osaka-u.ac.jp', nickname: '川村', university_id: 1,
     password: 'password', password_confirmation: 'password',
@@ -92,6 +96,7 @@ user = User.new(
 )
 user.skip_confirmation!
 user.save!
+
 
 user_hobby = UserHobby.create!(user_id: 1, hobby_id: 3)
 user_hobby = UserHobby.create!(user_id: 1, hobby_id: 5)
@@ -103,3 +108,4 @@ user_hobby = UserHobby.create!(user_id: 2, hobby_id: 8)
 user_hobby = UserHobby.create!(user_id: 3, hobby_id: 3)
 user_hobby = UserHobby.create!(user_id: 3, hobby_id: 4)
 user_hobby = UserHobby.create!(user_id: 3, hobby_id: 6)
+

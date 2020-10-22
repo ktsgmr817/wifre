@@ -32,5 +32,10 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
+
+
+  resources :relationships, only: [:create, :destroy]
 
 end
