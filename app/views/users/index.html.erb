@@ -1,10 +1,9 @@
 <h1><%= @university.university_name %></h1>
 
-
 <% @desc_user_common_points.each do | key, value | %>
   <% unless key == current_user.id %>
     <% user = User.find(key) %>
-    <img src=<%= user.image %> class = "icon_image">
+    <%= image_tag user.image %><br />
     <%= link_to user.nickname, user %><br />
   <% end %>
 <% end %>
