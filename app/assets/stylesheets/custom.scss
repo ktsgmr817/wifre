@@ -1,0 +1,587 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+p{
+  margin: 0;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+
+/* home.html.erb */
+/* header */
+
+header{
+  height: 150px;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  z-index: 9999;
+}
+
+.header-left{
+  font-size: 100px;
+  float: left;
+  a{
+    color: #30a3b3;
+  }
+}
+
+.header-right{
+  font-size: 40px;
+  float: right;
+  line-height: 100px;
+  li{
+    float: left;
+    padding: 0px 25px;
+    margin-top: 25px;
+    margin-right: 20px;
+    border: 3px solid #707070;
+    border-radius: 60px;
+    a{
+      color: #cc6b9c;
+      font-weight: bold;
+    }
+  }
+}
+
+.alert, .notice{
+  padding: 0!important;
+  margin: 0!important;
+  border: none!important;
+}
+
+/* top-wrapper */
+
+.top-wrapper{
+  background-image: url(/assets/top-image.jpg);
+  color: #fff;
+  background-size: cover;
+  background-position: center center;
+  height :1750px;
+  padding-top: 150px;
+}
+
+.sub-title {
+  margin: 100px 0;
+  p{
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  }
+}
+
+.name{
+  text-align: center;
+}
+
+.pseudonym{
+  font-size: 60px;
+}
+
+.service-name{
+  font-size: 230px;
+  line-height: 0.7em;
+}
+
+.catch-copy{
+  font-size: 80px;
+  margin: 220px 0 160px;
+  span{
+    color: #30a3b3;
+  }
+  p{
+    padding: 0 0 20px;
+  }
+}
+
+.button{
+  a{
+  font-size: 55px;
+  color: #fff;
+  letter-spacing: -0.02em;
+  font-weight: bold;
+  }
+  border-radius: 70px;
+  padding: 1.7em 0;
+  margin: 120px 0;
+}
+
+.signup{
+  background-color: #30a3b3;
+  text-align: center!important;
+}
+
+/* overview-wrapper */
+
+.overview-wrapper{
+  margin: 200px 0;
+}
+
+.explanation-wrapper{
+  font-size: 90px;
+  text-align: center;
+  margin-bottom: 130px;
+  font-weight: bold;
+}
+
+.detail-explanation{
+  font-size: 50px;
+  line-height: 1.5em;
+}
+
+/* problem-wrapper */
+
+.problem-wrapper{
+  background-color: #59c2d0;
+  padding: 100px 0 150px;
+}
+
+.problem-heading{
+  color: #fff;
+  font-size: 60px;
+  padding-bottom: 60px;
+  font-weight: bold;
+}
+
+.problem-examples{
+  padding-left: 0;
+}
+
+.problem-examples li{
+  background-color: #fff;
+  padding: 80px 100px;
+  margin: 75px 0;
+  font-size: 45px;
+  border-radius: 50px;
+}
+
+.dissolve{
+  text-align: center;
+  font-size: 90px;
+  color: #585858;
+  padding-top: 100px;
+  span{
+    font-size:160px;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+/* character-wrapper */
+
+.character-wrapper{
+  padding: 150px 0 60px;
+  background-color: #eff0eb;
+}
+
+.character-title p{
+  font-size: 90px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bullet-wrapper{
+  margin-bottom: 180px;
+}
+
+.character-bullet img{
+  width: 100%;
+}
+
+.bullet-1 img{
+  margin: 90px 0 30px;
+}
+
+.bullet-2 img{
+  margin: 130px 0 40px;
+}
+
+.bullet-3{
+  text-align: center;
+  img{
+  margin: 130px 0 40px;
+  width: 80%;
+  }
+}
+
+.character-presentation{
+  background-color: #fff;
+  border-radius: 110px;
+  text-align: left;
+}
+
+.character-heading{
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  padding: 90px 60px 0;
+}
+
+.character-explanation{
+  font-size: 40px;
+  padding: 70px;
+}
+
+/* usage-instructions-wrapper */
+
+.usage-instructions-wrapper{
+  margin: 150px 0 60px;
+}
+
+.instructions-title p{
+  font-size: 95px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.instruction-step{
+  text-align: center;
+  margin: 120px 0;
+  font-size: 60px;
+}
+
+.step{
+  color: #fff;
+  font-size: 50px;
+  background-color: #3DC1D3;
+  border-radius: 50px;
+  padding: 0.3em 0.8em;
+  display: inline-block;
+}
+
+/* footer */
+
+footer{
+  background-color: #eff0eb;
+  padding: 100px 0;
+  color: #707070;
+}
+
+.footer-name{
+  color: #59C2D0;
+  text-align: center;
+  font-size: 40px;
+}
+
+.footer-service-name{
+  font-size: 170px;
+  line-height: 0.7em;
+}
+
+.footer-list{
+  padding: 60px 0;
+  li{
+  font-size: 40px;
+  padding: 15px 0;
+  }
+  a{
+    color: #707070;
+  }
+}
+
+.copyright{
+  text-align: center;
+  font-size: 35px;
+}
+
+
+
+/* step1~3.html.erb */
+
+.signup-sub-title{
+  color: #59c2d0;
+  font-weight: bolder;
+}
+
+.name-for-signup{
+  color: #59c2d0;
+  text-align: center;
+}
+
+.pseudonym-for-signup{
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.service-name-for-signup{
+  font-size: 180px;
+  line-height: 0.6em;
+}
+
+.signup-phase h1{
+  font-size: 90px;
+  text-align: center;
+  padding: 160px 0;
+}
+
+.form-control{
+  font-size: 50px!important;
+  height: 90px!important;
+}
+
+.next{
+  background-color: #59c2d0;
+  text-align: center!important;
+  font-size: 50px;
+  padding: 25px 0;
+  color: #fff;
+  width: 100%;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+}
+
+.domain-form{
+  text-align: left;
+  font-size: 46px;
+  margin-top: 20px;
+  color: #707070;
+}
+
+.university-label{
+  font-size: 50px;
+  font-weight: lighter;
+  color: #707070;
+  padding: 30px 0;
+}
+
+.email-label{
+  font-size: 50px;
+  font-weight: lighter;
+  color: #707070;
+}
+
+.password-label, .nickname-label, .birth_date-label, .sex-label, .grade-label, .faculty-label, .department-label{
+  font-size: 50px;
+  font-weight: lighter;
+  color: #707070;
+  padding-top: 50px;
+}
+
+.name-label{
+  font-size: 50px;
+  font-weight: lighter;
+  color: #707070;
+}
+
+.lastname-label, .firstname-label{
+  font-size: 40px;
+  font-weight: lighter;
+  color: #aaaaaa;
+}
+
+.sex-four-label{
+  font-size: 40px;
+  font-weight: lighter;
+  color: #707070;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.bootstrap-date{
+  width: auto!important;
+  display: inline-block!important;
+}
+
+.form-after{
+  font-size: 40px;
+  margin-top: 17px;
+  color: #707070;
+}
+
+.department-field{
+  font-size: 40px!important;
+}
+
+.sex-radio-button, .remember-me-check-box{
+  width: 30px;
+  height: 30px;
+}
+
+.signup-complete{
+
+  h1{
+    font-size: 70px;
+    padding: 600px 0 100px;
+    color: #59C2D0;
+    text-align: center;
+    font-weight: bolder;
+  }
+  .complete-detail{
+    font-size: 40px;
+  }
+}
+
+/* sessions */
+
+.login-title h1{
+  font-size: 90px;
+  text-align: center;
+  padding: 160px 0;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+
+.remember-me-label{
+  font-size: 40px;
+  font-weight: lighter;
+  color: #707070;
+  padding-top: 40px;
+}
+
+#login-button{
+  letter-spacing: 0.1em;
+}
+
+/* commonphasefirst~third */
+
+.common-phase-wrapper{
+  padding-top: 100px;
+}
+
+.common-phase-title{
+  h1{
+    font-size: 70px;
+    font-weight: bold;
+  }
+  p{
+    font-size: 40px;
+  }
+}
+
+.icon_image-signup{
+  width: 80%;
+  text-align: center;
+}
+
+.birth-place-label, .user-image-label{
+  font-size: 50px;
+  font-weight: lighter;
+  color: #707070;
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.require-label{
+  font-size: 30px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  background-color: #59C2D0;
+  margin-left: 20px;
+}
+
+.file-form-control{
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 150px;
+}
+
+.class-label, .hobby-label{
+  font-size: 50px;
+  font-weight: lighter;
+  color: #707070;
+  padding-top: 50px;
+  padding-bottom: 150px;
+}
+
+.commonclass-form-control{
+  margin: 20px;
+}
+
+.hobby-select{
+  font-size: 50px;
+  font-weight: lighter;
+  padding: 10px 0;
+  input[type=checkbox]{
+    height: 50px;
+    width: 50px;
+  }
+  input[type=checkbox]:checked{
+    background-color: #59C2D0!important;
+  }
+}
+
+
+/* header */
+.after-signin-header{
+  height: 210px;
+  border-bottom: 1px solid #707070;
+}
+
+.menu{
+  text-align: center;
+  img{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    height: 110px;
+  }
+}
+
+
+/* index */
+.index-university-name h1{
+  font-size: 90px;
+  font-weight: bold;
+  margin-left: 70px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  letter-spacing: 0.05em;
+}
+
+.index-user{
+  padding: 30px 0;
+  margin: 30px 0;
+  box-shadow: 0 0 50px #d1d1d1;
+  border-radius: 30px;
+  left: 0;
+
+  .index-container{
+
+
+    .index-image img{
+      width: 235px;
+      height: 235px;
+    }
+
+    .index-nickname a{
+      font-size: 70px;
+      font-weight: bold;
+      color: #000000!important;
+    }
+
+    .index-faculty{
+      font-size: 40px;
+      margin-top: 40px;
+    }
+
+    .index-department{
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  }
+
+  .index-wifre-point{
+    .wifre-pt p{
+      color: #59C2D0;
+      font-size: 60px;
+      font-weight: bold;
+      padding-top: 10px;
+      letter-spacing: 0.02em;
+    }
+
+    .star-images{
+      width: 130%;
+      height: 130%;
+    }
+  }
+}

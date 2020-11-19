@@ -178,7 +178,7 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(
-      :birth_place, :commonclass1, :commonclass2, :commonclass3,
+      :birth_place, :image, :commonclass1, :commonclass2, :commonclass3,
       :commonclass4, :commonclass5,
       { hobby_ids: [] }
     )

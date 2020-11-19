@@ -1,9 +1,53 @@
-<h1><%= @university.university_name %></h1>
-
-<% @desc_user_common_points.each do | key, value | %>
-  <% unless key == current_user.id %>
-    <% user = User.find(key) %>
-    <%= image_tag user.image %><br />
-    <%= link_to user.nickname, user %><br />
-  <% end %>
+<% if user_signed_in? %>
+<%= render 'layouts/header' %>
 <% end %>
+
+
+<div class="index-university-name">
+  <h1><%= @university.university_name %></h1>
+</div>
+
+<div class="container">
+  <div class="row">
+      <% @desc_user_common_points.each do | key, value | %>
+        <% unless key == current_user.id %>
+          <% user = User.find(key) %>
+
+            <div class="col-xs-12 index-user">
+              <div class="index-container">
+                <div class="col-xs-4">
+                  <div class="index-image">
+                    <%= image_tag user.image, class:"icon_image" %><br />
+                  </div>
+                </div>
+                <div class="col-xs-7 col-xs-offset-1">
+                  <div class="index-nickname">
+                    <%= link_to user.nickname, user %><br />
+                  </div>
+                  <div class="index-faculty">
+                    <p><%= user.faculty %></p>
+                  </div>
+                  <div class="index-department">
+                    <p><%= user.department%></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="index-wifre-point">
+                <div class="col-xs-5">
+                  <div class="wifre-pt">
+                    <p>WIFRE度</p>
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <% if value >= -1 %>
+                  <img src="/assets/3-stars.png" class="star-images">
+                  <% end %>
+                </div>
+
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>

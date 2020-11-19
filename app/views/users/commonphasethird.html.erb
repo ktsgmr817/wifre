@@ -1,15 +1,31 @@
-<h2>共通項目設定</h2>
-<p>※後で変更できます。</p>
+<div class="common-phase-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="common-phase-title">
+        <div class="col-xs-12">
+          <h1>プロフィール設定</h1>
+          <p>※後で変更できます。</p>
+        </div>
+      </div>
 
-<%= form_for(@user, url: commonphasethird_users_path, method: :post) do |f| %>
+      <div class="col-xs-12">
+        <%= form_for(@user, url: commonphasethird_users_path, method: :post, html: { class: 'form-group' }) do |f| %>
+        <div class="col-xs-12">
+          <%= f.label :趣味を全て選択してください, class: 'hobby-label' %><br />
+          <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :hobbyname) do |b| %>
+            <div class="hobby-select">
+              <%= b.check_box %>
+              <%= b.label %>
+            </div>
+          <% end %>
+        </div>
 
-  <%= f.label :趣味 %><br />
-  <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :hobbyname) do |b| %>
-    <%= b.label { b.check_box + b.text } %><br />
-  <% end %>
+        <div class="col-xs-12">
+          <%= f.submit "保存", class: 'button next' %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "プロフィール設定" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-<% end %>
+</div>

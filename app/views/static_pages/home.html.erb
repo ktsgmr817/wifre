@@ -1,2 +1,170 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<header>
+  <nav>
+    <ul class="header-left">
+      <li><%= link_to 'WIFRE', root_path %></li>
+    </ul>
+    <ul class="header-right">
+      <li><%= link_to '新規登録', step1_signup_index_path %></li>
+      <li><%= link_to 'ログイン', new_user_session_path %></li>
+    </ul>
+  </nav>
+</header>
+
+
+<div class="top-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="sub-title">
+          <p>共通点で友達をつくる<br>大学生専用サービス</p>
+        </div>
+
+        <div class="name">
+          <p class="pseudonym">ウィフレ</p>
+          <p class="service-name">WIFRE</p>
+        </div>
+
+        <div class="catch-copy">
+          <p><span>友達</span>がいる</p>
+          <p>キャンパスライフを</p>
+          <p>あなたへ。</p>
+        </div>
+
+        <div class="button signup">
+          <%= link_to 'いますぐはじめる＞', step1_signup_index_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overview-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="explanation">
+          <p class="explanation-wrapper">WIFREとは？</p>
+          <p class="detail-explanation">
+            同じ大学の同級生と簡単に繋がることができるwebサービスです！<br>
+            趣味や授業などの共通点が多い人と友達になるきっかけをお届けします！
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="problem-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="problem-heading">
+          友達作りでこんな困ったことありませんか？
+        </p>
+        <ul class="problem-examples">
+          <li>オンライン授業ばかりで仲良くなれない</li>
+          <li>共通の趣味を持った友達ができない</li>
+          <li>同じ授業を受けている友達がいない</li>
+        </ul>
+        <div class="dissolve">
+          <p>そんな悩みを<br><span>WIFRE</span><br>が解決します</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="character-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="character-title">
+          <p>WIFREの特徴</p>
+        </div>
+
+        <div class="bullet-wrapper">
+          <div class="character-bullet bullet-1">
+            <img src="/assets/target.jpeg">
+            <div class="character-presentation">
+              <p class="character-heading">同じ大学内の友達が探せる</p>
+              <p class="character-explanation">WIFREは大学生専用webサービスです。新規登録の際に、大学から給付されるメールアドレスを使用するので同じ大学の同級生と知り合うことができます。</p>
+            </div>
+          </div>
+          <div class="character-bullet bullet-2">
+            <img src="/assets/game.jpeg">
+            <div class="character-presentation">
+              <p class="character-heading">共通点の多い友達と<br>繋がれる</p>
+              <p class="character-explanation">学部、学年、出身地など基本的なステータスから、授業や趣味といった細かな項目まで設定できるため、理想の友達が見つかります。</p>
+            </div>
+          </div>
+          <div class="character-bullet bullet-3">
+            <img src="/assets/message.jpeg">
+            <div class="character-presentation">
+              <p class="character-heading">手軽に友達にメッセージを<br>送れる</p>
+              <p class="character-explanation">簡単にメッセージを送ることができるため、オンラインで知り合った友達とチャットで仲を深めることができます。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="button signup">
+          <%= link_to 'いますぐはじめる＞', step1_signup_index_path %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="usage-instructions-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="instructions-title">
+          <p>WIFREの使い方</p>
+        </div>
+
+        <div class="instruction-step">
+          <p class="step">STEP1</p>
+          <p>共通点が多い友達を探そう</p>
+          <img src="#">
+        </div>
+        <div class="instruction-step">
+          <p class="step">STEP2</p>
+          <p>気になる人がいれば<br>フレンドに申請</p>
+          <img src="#">
+        </div>
+        <div class="instruction-step">
+          <p class="step">STEP3</p>
+          <p>フレンドが承認されれば<br>メッセージ交換</p>
+          <img src="#">
+        </div>
+
+        <div class="button signup">
+          <%= link_to 'いますぐはじめる＞', step1_signup_index_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+    <nav>
+      <div class="footer-name">
+        <p>ウィフレ</p>
+        <p class="footer-service-name">WIFRE</p>
+      </div>
+      <div class="container">
+        <div class="footer-list">
+          <ul>
+            <li><%= link_to 'トップへ', root_path %></li>
+            <li><%= link_to '利用規約', '#' %></li>
+            <li><%= link_to 'プライバシーポリシー', '#' %></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="copyright">
+      <p>&copy; 2020 WIFRE Inc. All rights reserved.</p>
+    </div>
+</footer>

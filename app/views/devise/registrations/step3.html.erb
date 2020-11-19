@@ -1,59 +1,103 @@
-<h2>新規登録3</h2>
+<div class="signup-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="sub-title signup-sub-title">
+          <p>共通点で友達をつくる<br>大学生専用サービス</p>
+        </div>
 
-<%= form_for(@user, as: :user, url: registration_path(resource_name), method: :post) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
+        <div class="name-for-signup">
+          <p class="pseudonym-for-signup">ウィフレ</p>
+          <p class="service-name-for-signup">WIFRE</p>
+        </div>
 
-  <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.label :姓 %>
-    <%= f.text_field :lastname, autofocus: true , placeholder: "ウィフレ" %>
-    <%= f.label :名 %>
-    <%= f.text_field :firstname, autofocus: true , placeholder: "太郎" %>
-  </div>
+        <div class="signup-phase">
+          <h1>新規登録3/3</h1>
+        </div>
 
-  <div class="field">
-    <%= f.label :ニックネーム %><br />
-    <%= f.text_field :nickname, autofocus: true %>
-  </div>
+        <%= form_for(@user, as: :user, url: registration_path(resource_name), method: :post, html: { class: 'form-group', id: 'form-group' }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: @user %>
 
-  <div class="field">
-    <%= f.label :生年月日 %><br />
-    <%= f.date_select(
-          :birth_date,
-          use_month_numbers:true,
+        <div class="col-xs-12">
+          <%= f.label :お名前, class: 'name-label' %><br>
+        </div>
+        <div class="col-xs-6">
+          <%= f.label :姓, class: 'lastname-label' %>
+          <%= f.text_field :lastname, autofocus: true , placeholder: "ウィフレ", class: 'form-control' %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.label :名, class: 'firstname-label' %>
+          <%= f.text_field :firstname, autofocus: true , placeholder: "太郎", class: 'form-control' %>
+        </div>
+
+        <div class="col-xs-12">
+          <%= f.label :ニックネーム, class: 'nickname-label' %>
+          <%= f.text_field :nickname, autofocus: true, class: 'form-control' %>
+        </div>
+
+        <div class="col-xs-12">
+          <%= f.label :生年月日, class: 'birth_date-label' %><br>
+          <%= f.date_select :birth_date,
+          { use_month_numbers:true,
           start_year: 1930,
           end_year: (Time.now.year - 18),
-          default: Date.new(2000,1,1) )
-      %>
-  </div>
+          default: Date.new(2000,1,1) },
+          { class: 'form-control bootstrap-date' }
+          %><br>
+        </div>
 
-  <div class="field">
-    <%= f.label :性別, :男性 %>
-    <%= f.radio_button :sex, 0 %>
-    <%= f.label :性別, :女性 %>
-    <%= f.radio_button :sex, 1 %>
-    <%= f.label :性別, :その他 %>
-    <%= f.radio_button :sex, 2 %>
-    <%= f.label :性別, :回答しない %>
-    <%= f.radio_button :sex, 9 %>
-  </div>
+        <div class="col-xs-12">
+          <%= f.label :性別, class: 'sex-label' %><br>
+          <%= f.radio_button :sex, 0, class: 'sex-radio-button' %>
+          <%= f.label :男性, class: 'sex-four-label' %>
+          <%= f.radio_button :sex, 1, class: 'sex-radio-button' %>
+          <%= f.label :女性, class: 'sex-four-label' %>
+          <%= f.radio_button :sex, 2, class: 'sex-radio-button' %>
+          <%= f.label :その他, class: 'sex-four-label' %>
+          <%= f.radio_button :sex, 9, class: 'sex-radio-button' %>
+          <%= f.label :回答しない, class: 'sex-four-label' %>
+        </div>
 
-  <div class="field">
-    <%= f.label :学年 %><br />
-    <%= f.select :grade, [["1", 1], ["2", 2], ["3", 3], ["4", 4]], :selected=>1  %>年
-  </div>
 
-  <div class="field">
-    <%= f.label :学部名 %><br />
-    <%= f.text_field :faculty, autofocus: true %>学部
-  </div>
+        <div class="col-xs-12">
+          <%= f.label :学年, class: 'grade-label' %><br>
+          <div class="col-xs-4">
+            <%= f.select :grade, [["1", 1], ["2", 2], ["3", 3], ["4", 4]], { :selected=>1 }, { class: 'form-control' } %>
+          </div>
+          <div class="col-xs-2 form-after">
+            <span>年</span>
+          </div>
+          <div class="col-xs-6">
 
-  <div class="field">
-    <%= f.label :学科または専攻・コース名 %><br />
-    <%= f.text_field :department, autofocus: true, placeholder: "〇〇学科/〇〇専攻/〇〇コース" %>
-  </div>
+          </div>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "仮登録メール送信" %>
+        <div class="col-xs-12">
+          <%= f.label :学部名, class: 'faculty-label' %><br>
+          <div class="col-xs-4">
+            <%= f.text_field :faculty, autofocus: true, class: 'form-control' %>
+          </div>
+          <div class="col-xs-2 form-after">
+            <span>学部</span>
+          </div>
+          <div class="col-xs-6">
+
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <%= f.label :学科または専攻・コース名, class: 'department-label' %>
+          <div class="col-xs-12 department-field">
+            <%= f.text_field :department, autofocus: true, placeholder: "〇〇学科/〇〇専攻/〇〇コース", class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <%= f.submit "仮登録メール送信", class: 'button next' %>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
   </div>
-<% end %>
+</div>

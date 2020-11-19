@@ -1,26 +1,54 @@
-<h2>新規登録2</h2>
+<div class="signup-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="sub-title signup-sub-title">
+          <p>共通点で友達をつくる<br>大学生専用サービス</p>
+        </div>
 
-<%= form_for(@user, as: :user, url: step3_signup_index_path, method: :get) do |f| %>
-  <%= render "devise/shared/error_messages", resource: @user %>
+        <div class="name-for-signup">
+          <p class="pseudonym-for-signup">ウィフレ</p>
+          <p class="service-name-for-signup">WIFRE</p>
+        </div>
 
-  <div class="field">
-    <%= f.label :大学のメールアドレス %><br />
-    <%= f.text_field :email_account, autofocus: true, autocomplete: "email" %><%= session[:domain] %>
+        <div class="signup-phase">
+          <h1>新規登録2/3</h1>
+        </div>
+
+
+        <%= form_for(@user, as: :user, url: step3_signup_index_path, method: :get, html: { class: 'form-group' }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: @user %>
+          <div class="row">
+            <div class="col-xs-12">
+              <%= f.label :大学のメールアドレス, class: 'email-label' %>
+            </div>
+            <div class="email-form">
+              <div class="col-xs-5">
+                <%= f.text_field :email_account, { autofocus: true, autocomplete: "email", class: 'form-control' } %>
+              </div>
+              <div class="col-xs-7 domain-form">
+                <span><%= session[:domain] %></span>
+              </div>
+            </div>
+
+            <div class="col-xs-12">
+              <%= f.label :パスワード, class: 'password-label' %>
+              <%= f.password_field :password, { autocomplete: "new-password", placeholder: "６文字以上", class: 'form-control' } %>
+            </div>
+
+            <div class="col-xs-12">
+              <%= f.label :パスワード（確認）, class: 'password-label' %>
+              <%= f.password_field :password_confirmation, { autocomplete: "new-password", placeholder: "６文字以上", class: 'form-control' } %>
+            </div>
+
+            <div class="col-xs-12">
+              <%= f.submit "次へ", class: 'button next' %>
+            </div>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :パスワード %>
-    <span>(6文字以上)</span><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :パスワード(確認用) %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "次へ" %>
-  </div>
-
-<% end %>
+</div>
