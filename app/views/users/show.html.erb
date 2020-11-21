@@ -1,48 +1,89 @@
 <%= render 'layouts/header' %>
 
-<%= link_to "戻る", :back %>
+<div class="container">
+  <div class="row">
+    <div class="show-top">
+      <div class="col-xs-4">
+        <div class="back-button">
+          <%= link_to "＜戻る", :back %>
+        </div>
+      </div>
 
-<span id="user_<%= @user.id %>" class="follow-wrapper">
-  <%= render 'follow_form', user: @user if signed_in? %>
-</span>
+      <div class="col-xs-8">
+          <span id="user_<%= @user.id %>" class="follow-wrapper">
+            <%= render 'follow_form', user: @user if signed_in? %>
+          </span>
+          <% if current_user.id == @user.id %>
+            <%= link_to '編集する', edit_user_registration_path, class: 'friend-button friend-button-a' %>
+          <% end %>
+      </div>
+    </div>
 
+    <div class="show-user">
+      <div class="row">
+        <div class="col-xs-5">
+          <div class="show-image">
+            <%= image_tag @user.image %><br />
+          </div>
+        </div>
+        <div class="col-xs-6 col-xs-offset-1">
+          <h1 class="show-nickname"><%= @user.nickname %></h1>
+          <div class="show-grade">
+            <%= @user.grade %><span>年生</span>
+          </div>
+          <div class="show-sex">
+            <% if @user.sex == 0 %>
+              <p>男性</p>
+            <% elsif @user.sex == 1 %>
+              <p>女性</p>
+            <% elsif @user.sex == 2 %>
+              <p>その他</p>
+            <% else %>
+              <p></p>
+            <% end %>
+          </div>
+        </div>
 
-<h1><%= @user.nickname %></h1>
+        <div class="show-belonging-to col-xs-12">
+          <%= @user.faculty %><span>学部 </span><%= @user.department %><br />
+        </div>
 
-<%= image_tag @user.image, class:"icon_image" %><br />
+        <div class="show-user-info col-xs-12">
+          <label for="birth_place" class="show-label">出身地</label><br />
+          <p class="show-value"><%= @user.birth_place %></p>
+        </div>
 
-<%= @user.grade %>年生
+        <div class="show-user-info col-xs-12">
+          <label for="user_hobby" class="show-label">趣味</label><br />
+          <% @userhobbies.each do |userhobby| %>
+            <% hobby = Hobby.find(userhobby.hobby_id) %>
+            <p class="show-value"><%= hobby.hobbyname %></p>
+          <% end %>
+        </div>
 
-<% if @user.sex == 0 %>
-  <p>男性</p>
-<% elsif @user.sex == 1 %>
-  <p>女性</p>
-<% elsif @user.sex == 2 %>
-  <p>その他</p>
-<% else %>
-  <p>未回答</p>
-<% end %>
+        <div class="show-user-info col-xs-12">
+          <label for="commonclass" class="show-label">友達が欲しい授業</label><br />
+          <% if !@user.commonclass1.nil? %>
+            <p class="show-value"><%= @user.commonclass1 %></p>
+          <% end %>
 
-<%= @user.faculty %><span>学部 </span><%= @user.department %><br />
+          <% if !@user.commonclass2.nil? %>
+            <p class="show-value"><%= @user.commonclass2 %></p>
+          <% end %>
 
-<label for="birth_place">出身地</label><br />
-<%= @user.birth_place %><br>
+          <% if !@user.commonclass3.nil? %>
+            <p class="show-value"><%= @user.commonclass3 %></p>
+          <% end %>
 
-<label for="user_hobby">趣味</label><br />
-<% @userhobbies.each do |userhobby| %>
-  <% hobby = Hobby.find(userhobby.hobby_id) %>
-  <%= hobby.hobbyname %><br>
-<% end %><br>
+          <% if !@user.commonclass4.nil? %>
+            <p class="show-value"><%= @user.commonclass4 %></p>
+          <% end %>
 
-<label for="commonclass">友達が欲しい授業</label><br />
-<% if !@user.commonclass1.nil? %>
-  <%= @user.commonclass1 %>
-<% elsif !@user.commonclass2.nil? %>
-  <%= @user.commonclass2 %>
-<% elsif !@user.commonclass3.nil? %>
-  <%= @user.commonclass3 %>
-<% elsif !@user.commonclass4.nil? %>
-  <%= @user.commonclass4 %>
-<% else %>
-  <%= @user.commonclass5 %>
-<% end %>
+          <% if !@user.commonclass5.nil? %>
+            <p class="show-value"><%= @user.commonclass5 %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

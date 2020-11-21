@@ -10,12 +10,13 @@
 
       <%= form_for(@user, url: commonphasesecond_users_path, method: :post, html: { class: 'form-group' }) do |f| %>
       <div class="col-xs-12">
-        <%= f.label :受けている授業（5つまで）, class: 'class-label' %><br />
-        <%= f.text_field :commonclass1, autofocus: true, placeholder: "正確に入力してください", class: 'form-control commonclass-form-control' %><br />
-        <%= f.text_field :commonclass2, autofocus: true, placeholder: "正確に入力してください", class: 'form-control commonclass-form-control' %><br />
-        <%= f.text_field :commonclass3, autofocus: true, placeholder: "正確に入力してください", class: 'form-control commonclass-form-control' %><br />
-        <%= f.text_field :commonclass4, autofocus: true, placeholder: "正確に入力してください", class: 'form-control commonclass-form-control' %><br />
-        <%= f.text_field :commonclass5, autofocus: true, placeholder: "正確に入力してください", class: 'form-control commonclass-form-control' %><br />
+        <%= f.label :友達が欲しい授業（５つまで）, class: 'class-label' %><br />
+        <p class="enter-correctly">※正確に入力してください</p>
+        <%= f.text_field :commonclass1, autofocus: true, placeholder: "(例) 線形代数学I", class: 'form-control commonclass-form-control' %><br />
+        <%= f.text_field :commonclass2, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
+        <%= f.text_field :commonclass3, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
+        <%= f.text_field :commonclass4, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
+        <%= f.text_field :commonclass5, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
       </div>
 
       <div class="col-xs-12">

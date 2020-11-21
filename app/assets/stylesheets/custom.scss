@@ -13,6 +13,9 @@ a{
   text-decoration: none;
 }
 
+.notice, .alert{
+  font-size: 40px;
+}
 
 
 /* home.html.erb */
@@ -457,8 +460,11 @@ footer{
   }
 }
 
-.icon_image-signup{
+.icon-image-signup{
   width: 80%;
+}
+
+.user-image-commonphase{
   text-align: center;
 }
 
@@ -481,9 +487,10 @@ footer{
 }
 
 .file-form-control{
-  font-size: 30px;
-  margin-top: 20px;
+  font-size: 40px;
+  margin-top: 50px;
   margin-bottom: 150px;
+  display: inline-block;
 }
 
 .class-label, .hobby-label{
@@ -494,14 +501,21 @@ footer{
   padding-bottom: 150px;
 }
 
+.enter-correctly{
+  font-size: 40px;
+  padding-bottom: 20px;
+}
+
 .commonclass-form-control{
   margin: 20px;
 }
 
 .hobby-select{
   font-size: 50px;
-  font-weight: lighter;
   padding: 10px 0;
+  label{
+    font-weight: lighter;
+  }
   input[type=checkbox]{
     height: 50px;
     width: 50px;
@@ -546,8 +560,6 @@ footer{
   left: 0;
 
   .index-container{
-
-
     .index-image img{
       width: 235px;
       height: 235px;
@@ -572,10 +584,9 @@ footer{
 
   .index-wifre-point{
     .wifre-pt p{
-      color: #59C2D0;
       font-size: 60px;
-      font-weight: bold;
       padding-top: 10px;
+      padding-left: 17px;
       letter-spacing: 0.02em;
     }
 
@@ -584,4 +595,142 @@ footer{
       height: 130%;
     }
   }
+}
+
+/* show */
+
+.show-top{
+  margin-top: 80px;
+  margin-bottom: 300px;
+}
+
+.back-button a{
+  font-size: 60px;
+  color: #59C2D0;
+  margin-top: 20px;
+}
+
+.friend-button{
+  background-color: #59c2d0;
+  text-align: center!important;
+  font-size: 50px;
+  width: 500px;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  border-radius: 70px;
+  padding: 0.7em 1em;
+}
+
+.friend-button-a{
+  display: inline-block;
+}
+
+.show-image img{
+  width: 330px;
+  height: 330px;
+}
+
+.show-nickname{
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.show-grade, .show-sex{
+  font-size: 50px;
+  margin-left: 20px;
+}
+
+.show-grade{
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.show-belonging-to{
+  font-size: 50px;
+  text-align: center;
+  margin: 40px 0 70px;
+}
+
+.show-label{
+  font-size: 60px;
+  color: #707070;
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+
+.show-value{
+  text-align: center;
+  font-size: 55px;
+  padding: 10px 0;
+}
+
+.show-user{
+  margin-bottom: 150px;
+  margin-top: 308px;
+}
+
+/* edit */
+
+.edit-top{
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.file-edit-form-control{
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.edit-class-label, .edit-hobby-label{
+  font-size: 50px;
+  font-weight: lighter;
+  color: #707070;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+/* room */
+
+.room-users{
+  margin-left: 70px!important;
+}
+
+.room-users-index-item{
+  padding: 90px 0;
+}
+
+.room-user-left{
+  img{
+    width: 230px;
+    height: 230px;
+  }
+}
+
+.room-user-nickname p{
+  font-size: 50px;
+  color: #000000;
+  font-weight: bold;
+  line-height: 100px;
+  margin-top: 20px;
+}
+
+.last-message{
+  font-size: 45px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+
+.check-read-flag{
+  font-size: 50px;
+  background-color: #F2A9CE;
+  color: #fff;
+  display: inline-block;
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 50px;
+  padding-top: 14px;
 }

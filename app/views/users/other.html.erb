@@ -1,0 +1,9 @@
+<%= render 'layouts/header' %>
+
+<%= link_to 'マイページ', current_user %>
+
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
+<%= link_to '利用規約', kiyaku_path %>
+
+<%= link_to 'プライバシーポリシー', privacy_path %>

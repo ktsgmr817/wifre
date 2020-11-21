@@ -174,6 +174,10 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def other
+
+  end
+
 
   private
   def user_params

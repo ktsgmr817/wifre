@@ -25,7 +25,7 @@
                     <%= link_to user.nickname, user %><br />
                   </div>
                   <div class="index-faculty">
-                    <p><%= user.faculty %></p>
+                    <p><%= user.faculty %>学部</p>
                   </div>
                   <div class="index-department">
                     <p><%= user.department%></p>
@@ -40,8 +40,12 @@
                   </div>
                 </div>
                 <div class="col-xs-4">
-                  <% if value >= -1 %>
+                  <% if value >= 2 %>
                   <img src="/assets/3-stars.png" class="star-images">
+                  <% elsif value >= 1 %>
+                  <img src="/assets/2-stars.png" class="star-images">
+                  <% else %>
+                  <img src="/assets/1-stars.png" class="star-images">
                   <% end %>
                 </div>
 

@@ -1,20 +1,39 @@
 <%= render 'layouts/header' %>
 
-<h1 class="users-heading">メッセージ一覧</h1>
-<% @anotherEntries.each do |e| %>
-  <div class="users-index-item">
-    <div class="user-left">
-      <%= link_to room_path(e.room.id) do %>
-        <img src="">
+<div class="container room-users">
+  <div class="row">
+      <% @anotherEntries.each do |e| %>
+        <div class="room-users-index-item">
+          <div class="room-user-left">
+            <div class="col-xs-4">
+              <%= link_to room_path(e.room.id) do %>
+                <%= image_tag e.user.image %>
+              <% end %>
+            </div>
+          </div>
+          <div class="room-user-right">
+            <div class="col-xs-7 col-xs-offset-1">
+              <%= link_to room_path(e.room.id), class: 'room-user-nickname' do %>
+              <div class="col-xs-11">
+                <p><%= e.user.nickname %></p>
+              </div>
+              <% end %>
+              <div class="col-xs-1">
+                <% room = Room.find e.room_id %>
+                <% if room.check_read_flag(current_user.id) %>
+                  <% flags = room.messages.where(read_flag: false) %>
+                  <p class="check-read-flag"><%= flags.count %></p>
+                <% else %>
+                <% end %>
+              </div>
+
+              <div class="col-xs-11">
+                <% room = Room.find e.room_id %>
+                <p class="last-message"><%= room.messages.order(created_at: :desc).take.try(:content) %></p>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </div>
-    <div class="user-right">
-      <%= link_to room_path(e.room.id) do %>
-        <%= e.user.nickname %>とDMをしよう！<br>
-      <% end %>
-      <% room = Room.find e.room_id %>
-      <% if room.check_read_flag(current_user.id) %>未読あり<% else %><% end %>
-      <%= room.messages.order(created_at: :desc).take.try(:content) %><br>
-    </div>
   </div>
-<% end %>
+</div>

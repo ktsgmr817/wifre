@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
+  get '/other', to: 'users#other'
+  get '/kiyaku', to: 'static_pages#kiyaku'
+  get '/privacy', to: 'static_pages#privacy'
 
   devise_for :users, controllers: { registrations: 'users/registrations',
                                     sessions: 'users/sessions' }

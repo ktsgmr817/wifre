@@ -11,8 +11,10 @@
       <%= form_for(@user, url: commonphasefirst_users_path, method: :post, html: { class: 'form-group' }) do |f| %>
       <div class="col-xs-12">
         <%= f.label :プロフィール画像, class: 'user-image-label' %><br/>
-        <%= image_tag @user.image, class:"icon_image-signup" %><br />
-        <%= f.file_field :image, class: "file-form-control" %>
+        <div class="user-image-commonphase">
+          <%= image_tag @user.image, class:"icon-image-signup" %><br />
+          <%= f.file_field :image, class: "file-form-control" %>
+        </div>
       </div>
 
       <div class="col-xs-12">

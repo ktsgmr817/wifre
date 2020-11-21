@@ -1,57 +1,102 @@
 <%= render 'layouts/header' %>
 
-<h2>マイページ編集</h2>
+<div class="container">
+  <div class="row">
+    <div class="edit-top">
+      <div class="back-button">
+        <%= link_to "＜戻る", :back %>
+      </div>
+    </div>
 
-<%= image_tag @user.image, class:"icon_image" %><br />
+    <div class="edit-user">
+      <div class="row">
+        <div class="col-xs-5">
+          <div class="show-image">
+            <%= image_tag @user.image %><br />
+          </div>
+        </div>
 
-<%= @user.grade %>年生
+        <div class="col-xs-6 col-xs-offset-1">
+          <h1 class="show-nickname"><%= @user.nickname %></h1>
+          <div class="show-grade">
+            <%= @user.grade %><span>年生</span>
+          </div>
+          <div class="show-sex">
+            <% if @user.sex == 0 %>
+              <p>男性</p>
+            <% elsif @user.sex == 1 %>
+              <p>女性</p>
+            <% elsif @user.sex == 2 %>
+              <p>その他</p>
+            <% else %>
+              <p></p>
+            <% end %>
+          </div>
+        </div>
 
-<% if @user.sex == 0 %>
-  <p>男性</p>
-<% elsif @user.sex == 1 %>
-  <p>女性</p>
-<% elsif @user.sex == 2 %>
-  <p>その他</p>
-<% else %>
-  <p>未回答</p>
-<% end %>
+        <div class="show-belonging-to col-xs-12">
+          <%= @user.faculty %><span>学部 </span><%= @user.department %><br />
+        </div>
 
-<%= @user.faculty %> <%= @user.department %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :ニックネーム %><br />
-    <%= f.text_field :nickname, autofocus: true %>
+          <div class="col-xs-12">
+            <%= f.label :プロフィール画像, class: 'user-image-label' %><br/>
+            <%= f.file_field :image, class: "file-edit-form-control" %>
+          </div>
+
+          <div class="col-xs-12">
+            <%= f.label :出身地, class: 'birth-place-label' %><br />
+            <%= f.select :birth_place, {
+              '北海道': '北海道', '青森県': '青森県', '岩手県': '岩手県',
+              '宮城県': '宮城県', '秋田県': '秋田県', '山形県': '山形県',
+              '福島県': '福島県', '茨城県': '茨城県', '栃木県': '栃木県',
+              '群馬県': '群馬県', '埼玉県': '埼玉県', '千葉県': '千葉県',
+              '東京都': '東京都', '神奈川県': '神奈川県', '新潟県': '新潟県',
+              '富山県': '富山県', '石川県': '石川県', '福井県': '福井県',
+              '山梨県': '山梨県', '長野県': '長野県', '岐阜県': '岐阜県',
+              '静岡県': '静岡県', '愛知県': '愛知県', '三重県': '三重県',
+              '滋賀県': '滋賀県', '京都府': '京都府', '大阪府': '大阪府',
+              '兵庫県': '兵庫県', '奈良県': '奈良県', '和歌山県': '和歌山県',
+              '鳥取県': '鳥取県', '島根県': '島根県', '岡山県': '岡山県',
+              '広島県': '広島県', '山口県': '山口県', '徳島県': '徳島県',
+              '香川県': '香川県', '愛媛県': '愛媛県', '高知県': '高知県',
+              '福岡県': '福岡県', '佐賀県': '佐賀県', '長崎県': '長崎県',
+              '熊本県': '熊本県', '大分県': '大分県', '宮崎県': '宮崎県',
+              '鹿児島県': '鹿児島県', '沖縄県': '沖縄県', '海外': '海外'
+            }, { include_blank: '選択してください。' }, { class: 'form-control' } %>
+          </div>
+
+          <div class="col-xs-12">
+            <%= f.label :趣味, class: 'edit-hobby-label' %><br />
+            <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :hobbyname) do |b| %>
+              <div class="hobby-select">
+                <%= b.check_box %>
+                <%= b.label %>
+              </div>
+            <% end %>
+          </div>
+
+          <div class="col-xs-12">
+            <%= f.label :友達が欲しい授業（５つまで）, class: 'edit-class-label' %><br />
+            <p class="enter-correctly">※正確に入力してください</p>
+            <%= f.text_field :commonclass1, autofocus: true, placeholder: "(例) 線形代数学I", class: 'form-control commonclass-form-control' %><br />
+            <%= f.text_field :commonclass2, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
+            <%= f.text_field :commonclass3, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
+            <%= f.text_field :commonclass4, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
+            <%= f.text_field :commonclass5, autofocus: true, placeholder: "", class: 'form-control commonclass-form-control' %><br />
+          </div>
+
+          <div class="col-xs-12">
+            <%= f.submit "プロフィール変更", class: 'button next' %>
+          </div>
+        <% end %>
+
+        <%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete %>
+
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :プロフィール画像 %><br/>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :趣味 %><br />
-    <%= f.collection_check_boxes(:hobby_ids, Hobby.all, :id, :hobbyname) do |b| %>
-      <%= b.label { b.check_box + b.text } %><br />
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :友達が欲しい授業 %><br />
-    <%= f.text_field :commonclass1, autofocus: true, placeholder: "正確に入力してください。" %><br />
-    <%= f.text_field :commonclass2, autofocus: true, placeholder: "正確に入力してください。" %><br />
-    <%= f.text_field :commonclass3, autofocus: true, placeholder: "正確に入力してください。" %><br />
-    <%= f.text_field :commonclass4, autofocus: true, placeholder: "正確に入力してください。" %><br />
-    <%= f.text_field :commonclass5, autofocus: true, placeholder: "正確に入力してください。" %><br />
-  </div>
-
-  <div class="actions">
-    <%= f.submit "プロフィール変更" %>
-  </div>
-<% end %>
-
-<%= button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-
-<%= link_to "Back", :back %>
+</div>

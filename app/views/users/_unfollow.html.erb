@@ -1,10 +1,10 @@
 <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+    <p><a href="/rooms/<%= @roomId %>" class="friend-button friend-button-a">チャットへ</a>
 <% else %>
   <%= form_for @room do |f| %>
     <%= fields_for @entry do |e| %>
       <%= e.hidden_field :user_id, :value=> @user.id %>
     <% end %>
-    <%= f.submit "チャットを始める" %>
+    <%= f.submit "チャットを始める", class: 'friend-button' %>
   <% end %>
 <% end %>
