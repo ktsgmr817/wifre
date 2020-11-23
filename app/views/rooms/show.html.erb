@@ -1,28 +1,50 @@
 <%= render 'layouts/header' %>
 
-<h1>DM</h1>
+<div class="container">
+  <div class="row">
+    <% @entries.each do |e| %>
+      <% if e.user.id != current_user.id %>
+      <div class="col-xs-3 col-xs-offset-1">
+        <%= image_tag e.user.image, class: 'room-show-user-icon' %>
+      </div>
+      <div class="col-xs-7 col-xs-offset-1">
+        <a href="/users/<%= e.user.id %>" class="room-show-nickname" ><%= e.user.nickname%></a>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<h4>参加者</h4>
-<% @entries.each do |e| %>
-  <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.nickname%>さん</a></strong></h5>
-<% end %>
+<hr class="room-show-hr">
 
-<hr>
-<% if @messages.present? %>
-  <% @messages.each do |m| %>
-    <strong><%= m.content %></strong>
-    <small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.nickname %>さん</a></strong></small>
-    <hr>
+<div class="message-container">
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <% if m.user.id == current_user.id %>
+      <div class="col-xs-8 col-xs-offset-4 current-user-message">
+        <span class="message-time"><%= m.created_at.strftime("%-H:%I") %></span>
+        <p class="message"><%= m.content %></p>
+        <!-- <strong><a href="/users/<%= m.user_id %>"><%= m.user.nickname %></a> -->
+      </div>
+      <% else %>
+      <div class="col-xs-8 partner-message">
+        <p class="message"><%= m.content %></p>
+        <!-- <strong><a href="/users/<%= m.user_id %>"><%= m.user.nickname %>さん</a> -->
+        <span class="message-time"><%= m.created_at.strftime("%-H:%I") %></span>
+      </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h3 class="messages-not-exists">メッセージはまだありません</h3>
   <% end %>
-<% else %>
-  <h3 class="text-center">メッセージはまだありません</h3>
-<% end %>
+</div>
 
-<%= form_for @message do |f| %>
-  <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
-  <%= f.hidden_field :room_id, :value => @room.id %>
-  <br>
-  <%= f.submit "投稿する" %>
-<% end %>
-
-<%= link_to "ユーザー一覧に戻る", users_path %>
+<div class="message-posting">
+  <%= form_for @message do |f| %>
+    <%= f.text_field :content, :placeholder => "メッセージを入力" , class: 'message-form-control' %>
+    <%= f.hidden_field :room_id, :value => @room.id %>
+    <%= button_tag type: :submit, class: 'posting-button' do %>
+      <%= image_tag "/assets/posting.png" %>
+    <% end %>
+  <% end %>
+</div>
