@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="sub-title signup-sub-title">
-          <p>共通点で友達をつくる<br>大学生専用サービス</p>
+          <p>共通点で友達をつくる<br>阪大生専用サービス</p>
         </div>
 
         <div class="name-for-signup">
@@ -93,7 +93,15 @@
         </div>
 
         <div class="col-xs-12">
-          <%= f.submit "仮登録メール送信", class: 'button next' %>
+          <%= f.check_box :agreement, :as => :boolean, checked:false, class: 'agreement-control' %>
+          <p class="agreement-label">
+            <%= link_to '利用規約', kiyaku_path, target: :_blank, rel: "noopener noreferrer" %>と
+            <%= link_to 'プライバシーポリシー', privacy_path, target: :_blank, rel: "noopener noreferrer" %>に同意する
+          </p>
+        </div>
+
+        <div class="col-xs-12">
+          <%= f.submit "仮登録メール送信", class: 'button next temporary' %>
         </div>
         <% end %>
 

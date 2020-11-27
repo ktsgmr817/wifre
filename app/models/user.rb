@@ -12,9 +12,6 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  #step1
-  validates :university_id, presence: true
-
   #step2
   validates :email, presence: true#, uniqueness: { case_sensitive: false }
 
@@ -26,6 +23,7 @@ class User < ApplicationRecord
   validates :grade, presence: true
   validates :faculty, presence: true
   validates :department, presence: true
+  validates_acceptance_of :agreement, allow_nil: false, message: "利用規約とプライバシーポリシーに同意してください", on: :create
 
 
   attr_accessor :current_password

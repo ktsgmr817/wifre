@@ -43,7 +43,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sex: user_params[:sex],
       grade: user_params[:grade],
       faculty: user_params[:faculty],
-      department: user_params[:department]
+      department: user_params[:department],
+      agreement: user_params[:agreement]
     )
     if @user.save
       session[:id] = @user.id
@@ -72,7 +73,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sex: 0,
       grade: 1,
       faculty: "ウィフレ",
-      department: "友達学科"
+      department: "友達学科",
+      agreement: true
     )
     render 'step1' unless @user.valid?
   end
@@ -93,7 +95,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sex: 0,
       grade: 1,
       faculty: "ウィフレ",
-      department: "友達学科"
+      department: "友達学科",
+      agreement: true
     )
     render 'step2' unless @user.valid?
   end
@@ -103,7 +106,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(
       :university_id, :email_account, :email, :password, :password_confirmation,
       :nickname, :lastname, :firstname, :birth_date,
-      :sex, :grade, :faculty, :department
+      :sex, :grade, :faculty, :department, :agreement
     )
   end
 

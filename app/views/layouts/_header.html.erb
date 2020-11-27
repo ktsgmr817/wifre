@@ -29,12 +29,12 @@
 
   <div class="menu">
     <div class="col-xs-3">
-      <% if current_page?(edit_user_registration_path) %>
-        <%= link_to edit_user_registration_path do %>
+      <% if current_page?(current_user) %>
+        <%= link_to current_user do %>
           <img src="/assets/mypage.color.png">
         <% end %>
       <% else %>
-        <%= link_to edit_user_registration_path do %>
+        <%= link_to current_user do %>
           <img src="/assets/mypage.png">
           <% end %>
       <% end %>

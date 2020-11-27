@@ -1,4 +1,4 @@
-@import "bootstrap-sprockets";
+ @import "bootstrap-sprockets";
 @import "bootstrap";
 
 p{
@@ -68,14 +68,14 @@ header{
   color: #fff;
   background-size: cover;
   background-position: center center;
-  height :1750px;
+  height: 1973px;
   padding-top: 150px;
 }
 
 .sub-title {
   margin: 100px 0;
   p{
-  font-size: 40px;
+  font-size: 48px;
   text-align: center;
   letter-spacing: 0.2em;
   }
@@ -98,7 +98,7 @@ header{
   font-size: 80px;
   margin: 220px 0 160px;
   span{
-    color: #30a3b3;
+    color: #59C2D0;
   }
   p{
     padding: 0 0 20px;
@@ -118,14 +118,29 @@ header{
 }
 
 .signup{
-  background-color: #30a3b3;
+  background-color: #59C2D0;
   text-align: center!important;
+}
+
+/* notificate-wrapper */
+
+.notificate-wrapper{
+  margin-top: 143px;
+  text-align: center;
+}
+
+.recruitment{
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 89px;
+  background: linear-gradient(transparent 82%, #59C2D0 60%);
+  display: inline-block;
 }
 
 /* overview-wrapper */
 
 .overview-wrapper{
-  margin: 200px 0;
+  margin: 152px 0;
 }
 
 .explanation-wrapper{
@@ -149,7 +164,7 @@ header{
 
 .problem-heading{
   color: #fff;
-  font-size: 60px;
+  font-size: 65px;
   padding-bottom: 60px;
   font-weight: bold;
 }
@@ -162,7 +177,7 @@ header{
   background-color: #fff;
   padding: 80px 100px;
   margin: 75px 0;
-  font-size: 45px;
+  font-size: 51px;
   border-radius: 50px;
 }
 
@@ -212,6 +227,14 @@ header{
   img{
   margin: 130px 0 40px;
   width: 80%;
+  }
+}
+
+.bullet-4{
+  text-align: center;
+  img{
+    margin: 130px 0 0;
+    width: 80%;
   }
 }
 
@@ -295,9 +318,32 @@ footer{
   font-size: 35px;
 }
 
-
+/* error */
+#error_explanation{
+  border: 10px solid #F86882;
+  border-radius: 35px;
+  margin-bottom: 80px;
+  h2{
+    font-size: 60px;
+    padding-top: 30px;
+    padding-left: 40px;
+    font-weight: bold;
+  }
+  ul{
+    padding-left: 0;
+    padding: 40px;
+    margin-bottom: 30px;
+    li{
+        font-size: 40px;
+    }
+  }
+}
 
 /* step1~3.html.erb */
+
+.signup-wrapper{
+  margin-bottom: 150px;
+}
 
 .signup-sub-title{
   color: #59c2d0;
@@ -409,6 +455,19 @@ footer{
   height: 30px;
 }
 
+.agreement-control{
+  transform: scale(4.0);
+  margin: 105px 22px 50px !important;
+}
+
+.agreement-label{
+  font-size: 41px;
+}
+
+.temporary{
+  letter-spacing: 0.1em;
+}
+
 .signup-complete{
 
   h1{
@@ -420,6 +479,7 @@ footer{
   }
   .complete-detail{
     font-size: 40px;
+    padding-bottom: 600px;
   }
 }
 
@@ -563,6 +623,8 @@ footer{
     .index-image img{
       width: 235px;
       height: 235px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .index-nickname a{
@@ -629,6 +691,8 @@ footer{
 .show-image img{
   width: 330px;
   height: 330px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .show-nickname{
@@ -705,6 +769,8 @@ footer{
   img{
     width: 230px;
     height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 }
 
@@ -740,6 +806,8 @@ footer{
 .room-show-user-icon{
   width: 140px;
   height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .room-show-nickname{
@@ -754,8 +822,8 @@ footer{
   border-top: 2px solid #707070;
 }
 
-.message-container{
-  
+.last-message{
+  margin-bottom: 210px;
 }
 
 .current-user-message{
@@ -772,7 +840,7 @@ footer{
   border: 1px solid #707070;
   border-radius: 40px;
   display: inline-block;
-  padding: 10px 40px;
+  padding: 20px 40px;
 }
 
 .message-time{
@@ -802,6 +870,7 @@ footer{
 .message-form-control{
   font-size: 40px;
   width: 80%;
+  height: 80px;
   border: 1px solid #707070;
   border-radius: 30px;
   padding: 10px 40px;
@@ -815,6 +884,54 @@ footer{
     width: 84px;
     height: 62px;
     margin-left: 24px;
-    margin-bottom: 17px;
+    margin-bottom: 65px;
+  }
+}
+
+.other-content{
+  a{
+    display: inline-block;
+    width: 80%;
+    font-size: 55px;
+    color: #707070;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #707070;
+  }
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 180px;
+}
+
+.other-label{
+  font-weight: bold;
+  color: #59C2D0;
+  text-align: left;
+  font-size: 70px;
+  padding-bottom: 20px;
+}
+
+
+/* privacy */
+.privacy, .kiyaku{
+  margin: 150px 0 300px;
+  h1{
+    font-size: 75px;
+    text-align: center;
+    padding: 40px 0;
+  }
+  h3{
+    font-size: 60px;
+    padding: 100px 0 30px;
+  }
+  h4{
+    font-size: 40px;
+    padding: 30px 0 20px;
+  }
+  p{
+    font-size: 40px;
+  }
+  .enforcement-date{
+    padding-top: 100px;
   }
 }

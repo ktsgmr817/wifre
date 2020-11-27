@@ -20,13 +20,20 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
-        name: 名前
+        nickname: "ニックネーム"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
+        university: "大学名"
+        firstname: "名"
+        lastname: "姓"
+        sex: "性別"
+        faculty: "学部"
+        department: "学科または専攻・コース名"
+        agreement: ""
     models:
-      user: "ユーザ"
+      user: "ユーザー"
   devise:
     confirmations:
       new:
@@ -83,3 +90,8 @@ ja:
     unlocks:
       new:
         resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
+  errors:
+    messages:
+      not_saved:
+        one: "エラー"
+        other: "エラー"

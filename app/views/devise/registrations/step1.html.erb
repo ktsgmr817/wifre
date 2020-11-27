@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="sub-title signup-sub-title">
-          <p>共通点で友達をつくる<br>大学生専用サービス</p>
+          <p>共通点で友達をつくる<br>阪大生専用サービス</p>
         </div>
 
         <div class="name-for-signup">
@@ -20,7 +20,7 @@
           <div class="row">
             <div class="col-xs-12">
               <%= f.label :あなたの大学を教えてください, class: 'university-label' %><br />
-              <%= f.select :university_id, { '大阪大学': 1, '関西大学': 2, '神戸大学': 3 }, { include_blank: '選択してください' }, { class: 'form-control' } %>
+              <%= f.select :university_id, { '大阪大学': 1 }, { include_blank: '選択してください' }, { class: 'form-control' } %>
             </div>
 
             <div class="col-xs-12">

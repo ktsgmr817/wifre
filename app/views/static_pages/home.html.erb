@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="sub-title">
-          <p>共通点で友達をつくる<br>大学生専用サービス</p>
+          <p>共通点で友達をつくる<br>阪大生専用サービス</p>
         </div>
 
         <div class="name">
@@ -25,7 +25,8 @@
         </div>
 
         <div class="catch-copy">
-          <p><span>友達</span>がいる</p>
+          <p><span>阪大</span>に</p>
+          <p><span>友だち</span>がいる</p>
           <p>キャンパスライフを</p>
           <p>あなたへ。</p>
         </div>
@@ -33,6 +34,17 @@
         <div class="button signup">
           <%= link_to 'いますぐはじめる＞', step1_signup_index_path %>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="notificate-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <p class="recruitment">現在β版阪大生限定</p>
+        <p class="recruitment">テストユーザー募集中！</p>
       </div>
     </div>
   </div>
@@ -65,6 +77,7 @@
           <li>オンライン授業ばかりで仲良くなれない</li>
           <li>共通の趣味を持った友達ができない</li>
           <li>同じ授業を受けている友達がいない</li>
+          <li>恋愛のマッチングアプリはあるけど友達を作るサービスが少ない</li>
         </ul>
         <div class="dissolve">
           <p>そんな悩みを<br><span>WIFRE</span><br>が解決します</p>
@@ -87,7 +100,7 @@
             <img src="/assets/target.jpeg">
             <div class="character-presentation">
               <p class="character-heading">同じ大学内の友達が探せる</p>
-              <p class="character-explanation">WIFREは大学生専用webサービスです。新規登録の際に、大学から給付されるメールアドレスを使用するので同じ大学の同級生と知り合うことができます。</p>
+              <p class="character-explanation">WIFREは阪大生専用webサービスです。新規登録の際に、大学から給付されるメールアドレスを使用するので同じ大学の同級生と知り合うことができます。</p>
             </div>
           </div>
           <div class="character-bullet bullet-2">
@@ -100,8 +113,15 @@
           <div class="character-bullet bullet-3">
             <img src="/assets/message.jpeg">
             <div class="character-presentation">
-              <p class="character-heading">手軽に友達にメッセージを<br>送れる</p>
-              <p class="character-explanation">簡単にメッセージを送ることができるため、オンラインで知り合った友達とチャットで仲を深めることができます。</p>
+              <p class="character-heading">仲を深めたら会える</p>
+              <p class="character-explanation">フレンドになることができればメッセージを送ることができます。メッセージを送って仲を深めたらぜひ会ってみましょう。</p>
+            </div>
+          </div>
+          <div class="character-bullet bullet-4">
+            <img src="/assets/free.jpeg">
+            <div class="character-presentation">
+              <p class="character-heading">サービス利用無料</p>
+              <p class="character-explanation">登録からフレンド申請、メッセージを送るまで一切料金はいただいておりません。現在β版として試用期間中ですので無料でご利用いただけます。</p>
             </div>
           </div>
         </div>
@@ -158,8 +178,8 @@
         <div class="footer-list">
           <ul>
             <li><%= link_to 'トップへ', root_path %></li>
-            <li><%= link_to '利用規約', kiyaku_path %></li>
-            <li><%= link_to 'プライバシーポリシー', privacy_path %></li>
+            <li><%= link_to '利用規約', kiyaku_path, target: :_blank, rel: "noopener noreferrer" %></li>
+            <li><%= link_to 'プライバシーポリシー', privacy_path, target: :_blank, rel: "noopener noreferrer" %></li>
           </ul>
         </div>
       </div>
