@@ -87,7 +87,7 @@ Rails.application.configure do
   end
 
   #mailer_setting
-  config.action_mailer.default_url_options = { host: 'dashboard.heroku.com/apps/wifre'}
+  config.action_mailer.default_url_options = { host: 'wifre.herokuapp.com'}
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
