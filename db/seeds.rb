@@ -67,47 +67,49 @@ Hobby.create!(hobbyname: "バイク")
 Hobby.create!(hobbyname: "筋トレ")
 Hobby.create!(hobbyname: "イラスト")
 
-
-user = User.new(
-  email: 'u120837h@ecs.osaka-u.ac.jp', nickname: '大ちゃん', university_id: 1,
-  password: 'password', password_confirmation: 'password',
-  lastname: '石橋', firstname: '大輝', birth_date: Date.new(2000,1,1),
-  sex: 0, grade: 1, faculty: '法', department: '法学科', birth_place: '北海道',
-  agreement: true
-)
-user.skip_confirmation!
-user.save!
-
-
-user = User.new(
-    email: 'u234098h@ecs.osaka-u.ac.jp', nickname: 'みさ', university_id: 1,
+group :development do
+  user = User.new(
+    email: 'u120837h@ecs.osaka-u.ac.jp', nickname: '大ちゃん', university_id: 1,
     password: 'password', password_confirmation: 'password',
-    lastname: 'みさ', firstname: 'みさ', birth_date: Date.new(2000,1,1),
-    sex: 1, grade: 1, faculty: '法', department: '国際教養学科', birth_place: '北海道',
+    lastname: '石橋', firstname: '大輝', birth_date: Date.new(2000,1,1),
+    sex: 0, grade: 1, faculty: '法', department: '法学科', birth_place: '北海道',
     agreement: true
-)
-user.skip_confirmation!
-user.save!
+  )
+  user.skip_confirmation!
+  user.save!
 
 
-user = User.new(
-    email: 'u123137h@ecs.osaka-u.ac.jp', nickname: '川村', university_id: 1,
-    password: 'password', password_confirmation: 'password',
-    lastname: '川村', firstname: '浩輔', birth_date: Date.new(2000,1,1),
-    sex: 0, grade: 1, faculty: '文', department: '日本史学科', birth_place: '大阪府',
-    agreement: true
-)
-user.skip_confirmation!
-user.save!
+  user = User.new(
+      email: 'u234098h@ecs.osaka-u.ac.jp', nickname: 'みさ', university_id: 1,
+      password: 'password', password_confirmation: 'password',
+      lastname: 'みさ', firstname: 'みさ', birth_date: Date.new(2000,1,1),
+      sex: 1, grade: 1, faculty: '法', department: '国際教養学科', birth_place: '北海道',
+      agreement: true
+  )
+  user.skip_confirmation!
+  user.save!
 
 
-user_hobby = UserHobby.create!(user_id: 1, hobby_id: 3)
-user_hobby = UserHobby.create!(user_id: 1, hobby_id: 5)
-user_hobby = UserHobby.create!(user_id: 1, hobby_id: 8)
-user_hobby = UserHobby.create!(user_id: 1, hobby_id: 9)
-user_hobby = UserHobby.create!(user_id: 2, hobby_id: 3)
-user_hobby = UserHobby.create!(user_id: 2, hobby_id: 5)
-user_hobby = UserHobby.create!(user_id: 2, hobby_id: 8)
-user_hobby = UserHobby.create!(user_id: 3, hobby_id: 3)
-user_hobby = UserHobby.create!(user_id: 3, hobby_id: 4)
-user_hobby = UserHobby.create!(user_id: 3, hobby_id: 6)
+  user = User.new(
+      email: 'u123137h@ecs.osaka-u.ac.jp', nickname: '川村', university_id: 1,
+      password: 'password', password_confirmation: 'password',
+      lastname: '川村', firstname: '浩輔', birth_date: Date.new(2000,1,1),
+      sex: 0, grade: 1, faculty: '文', department: '日本史学科', birth_place: '大阪府',
+      agreement: true
+  )
+  user.skip_confirmation!
+  user.save!
+
+
+  user_hobby = UserHobby.create!(user_id: 1, hobby_id: 3)
+  user_hobby = UserHobby.create!(user_id: 1, hobby_id: 5)
+  user_hobby = UserHobby.create!(user_id: 1, hobby_id: 8)
+  user_hobby = UserHobby.create!(user_id: 1, hobby_id: 9)
+  user_hobby = UserHobby.create!(user_id: 2, hobby_id: 3)
+  user_hobby = UserHobby.create!(user_id: 2, hobby_id: 5)
+  user_hobby = UserHobby.create!(user_id: 2, hobby_id: 8)
+  user_hobby = UserHobby.create!(user_id: 3, hobby_id: 3)
+  user_hobby = UserHobby.create!(user_id: 3, hobby_id: 4)
+  user_hobby = UserHobby.create!(user_id: 3, hobby_id: 6)
+
+end
