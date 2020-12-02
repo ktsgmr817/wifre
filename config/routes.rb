@@ -24,11 +24,7 @@ Rails.application.routes.draw do
       get :commonphasethird
       post :commonphasethird, to: 'users#create_commonphasethird'
     end
-  end
 
-  resources :users
-
-  resources :users do
     member do
       get :following, :followers, :users_tweets
     end
