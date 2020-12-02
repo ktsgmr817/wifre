@@ -130,7 +130,7 @@ header{
 }
 
 .recruitment{
-  font-size: 60px;
+  font-size: 53px;
   font-weight: bold;
   line-height: 89px;
   background: linear-gradient(transparent 82%, #59C2D0 60%);
@@ -270,8 +270,19 @@ header{
 
 .instruction-step{
   text-align: center;
-  margin: 120px 0;
+  margin: 236px 0;
+}
+
+.step-heading{
   font-size: 60px;
+  font-weight: bold;
+  margin: 60px 0px;
+}
+
+.step-detail{
+  font-size: 40px;
+  text-align: left;
+  padding-bottom: 64px;
 }
 
 .step{
@@ -281,6 +292,11 @@ header{
   border-radius: 50px;
   padding: 0.3em 0.8em;
   display: inline-block;
+}
+
+.instruction-image{
+  width: 100%;
+  border: 1px solid #707070;
 }
 
 /* footer */
