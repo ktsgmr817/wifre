@@ -7,7 +7,7 @@
           <div class="room-user-left">
             <div class="col-xs-4">
               <%= link_to room_path(e.room.id) do %>
-                <%= image_tag e.user.image %>
+                <%= image_tag e.user.image.url %>
               <% end %>
             </div>
           </div>
