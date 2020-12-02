@@ -36,4 +36,5 @@ class ImageUploader < CarrierWave::Uploader::Base
       }
       config.fog_directory     =  ENV['S3_BUCKET']
     end
+  end
 end
