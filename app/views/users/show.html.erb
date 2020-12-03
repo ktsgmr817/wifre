@@ -14,7 +14,7 @@
             <%= render 'follow_form', user: @user if signed_in? %>
           </span>
           <% if current_user.id == @user.id %>
-            <%= link_to '編集する', edit_user_registration_path, class: 'friend-button friend-button-a' %>
+            <%= link_to '編集する', edit_user_registration_path(@user.id), class: 'friend-button friend-button-a' %>
           <% end %>
       </div>
     </div>
