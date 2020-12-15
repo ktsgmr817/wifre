@@ -26,7 +26,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where(university_id: current_user.university_id)
+    @confirmed_users = User.where.not(confirmed_at: nil)
+    @users = @confirmed_users.where(university_id: current_user.university_id)
     @university = University.find_by(id: current_user.university_id)
 
     @user_common_points = Hash.new
