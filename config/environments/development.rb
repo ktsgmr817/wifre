@@ -60,7 +60,7 @@ Rails.application.configure do
     :address => 'smtp.gmail.com',
     :port => 587,
     :user_name => 'wifre.info@gmail.com',
-    :password => 'wqmfqauycfkbhrms',
+    :password => 'zpbypvbxcpvbehko',
     :authentication => :plain,
     :enable_starttls_auto => true
   }
