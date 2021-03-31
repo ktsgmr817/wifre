@@ -12,10 +12,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  # ウィザード形式新規登録 1ページ目 表示するためのアクション
   def step1
     @user = User.new
   end
 
+  # ウィザード形式新規登録 2ページ目 表示するためのアクション
   def step2
     session[:university_id] = user_params[:university_id]
     @University = University.find_by(id: session[:university_id])
@@ -23,6 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  # ウィザード形式新規登録 3ページ目 表示するためのアクション
   def step3
     session[:email] = user_params[:email_account] + session[:domain]
     session[:password] = user_params[:password]
@@ -30,6 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  # ユーザーを登録する
   def create
     @user = User.new(
       university_id: session[:university_id],
@@ -58,7 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   end
 
-
+  # ウィザード形式新規登録 1ページ目 セッションにuniversity_idを保存
   def validates_step1
     session[:university_id] = user_params[:university_id]
     @user = User.new(
@@ -79,6 +83,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render 'step1' unless @user.valid?
   end
 
+  # ウィザード形式新規登録 2ページ目 セッションにemail, password, password_confirmationを保存
   def validates_step2
     session[:email] = user_params[:email_account] + session[:domain]
     session[:password] = user_params[:password]
@@ -102,6 +107,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
+  # ストロングパラメータ
   def user_params
     params.require(:user).permit(
       :university_id, :email_account, :email, :password, :password_confirmation,
@@ -110,13 +116,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
   end
 
-
   protected
 
+  # ユーザー編集後に'users'へ
   def after_update_path_for(resource)
     users_path
   end
 
+  # パスワードの変更無しでユーザーを編集可能に
   def update_resource(resource, params)
     resource.update_without_password(params)
   end

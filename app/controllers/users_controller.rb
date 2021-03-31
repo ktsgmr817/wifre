@@ -3,31 +3,38 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
+    # ログインユーザーのエントリーを全て取得
     @currentUserEntry=Entry.where(user_id: current_user.id)
+    # 該当ユーザーのエントリーを全て取得
     @userEntry=Entry.where(user_id: @user.id)
-    if @user.id == current_user.id
-    else
+
+    unless @user.id == current_user.id
+      # ログインユーザーと該当ユーザーの共通ルームがあれば @isRoom に true、 @roomId に 共通のルームID をもたせる
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
-          if cu.room_id == u.room_id then
+          if cu.room_id == u.room_id
             @isRoom = true
             @roomId = cu.room_id
           end
         end
       end
-      if @isRoom
-      else
+      # @isRoomがnilならばroomとentryを新しく作成
+      unless @isRoom
         @room = Room.new
         @entry = Entry.new
       end
     end
-    @user = User.find(params[:id])
+
+    # 該当ユーザーのUserHobbyを全て取得
     @userhobbies = UserHobby.where(user_id: @user.id)
   end
 
   def index
+    # メール認証済ユーザーを全て取得
     @confirmed_users = User.where.not(confirmed_at: nil)
+    # メール認証済ユーザーの中でログインユーザーと大学が同じユーザーを全て取得
     @users = @confirmed_users.where(university_id: current_user.university_id)
+    # ログインユーザーのUniversityを取得
     @university = University.find_by(id: current_user.university_id)
 
     @user_common_points = Hash.new
@@ -35,8 +42,10 @@ class UsersController < ApplicationController
       @user_common_points[user.id] = 0
     end
 
+    # ログインユーザーのUserHobbyを全て取得
     @user_hobbies = UserHobby.where(user_id: current_user.id)
     @user_hobbies.each do |user_hobby|
+      # ログインユーザーが登録している趣味を1つ取得
       @common_hobby = Hobby.find(user_hobby.hobby_id)
       @common_user_hobbies = UserHobby.where(hobby_id: @common_hobby.id)
       @common_user_hobbies.each do |common_user_hobby|
@@ -133,14 +142,12 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "フォロー"
     @user = User.find(params[:id])
     @users = @user.followings
     render 'show_follow'
   end
 
   def followers
-    @title = "フォロワー"
     @user = User.find(params[:id])
     @users = @user.followers
     render 'show_follow'
