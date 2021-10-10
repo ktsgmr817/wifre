@@ -1,24 +1,19 @@
-# README
+# WIFRE
+共通点で友達をつくる 阪大生専用サービス「WIFRE(ウィフレ)」
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 解決したい課題
+新型コロナウイルスの流行により、大学で対面授業を行うことが難しくなり、特に大学1年生が友達をつくりにくくなったという問題を解決するためのSNS。
+オンライン授業が多い中で友達がいないことでただ単に寂しくなるだけでなく、情報交換ができずに助け合いながら学習を進めることが困難になる。
+大学1年生に一人でも友達ができることを願い、制作した。
 
-Things you may want to cover:
+## URL
+https://wifre.herokuapp.com/
 
-* Ruby version
+## 主な機能
+### 共通度(通称WIFRE度)が多い順にユーザーを表示する機能
+登録後に入力してもらう項目における共通度が多い順にユーザーを表示させることで、共通点が多くある大学生と繋がることができる。
+共通点が多い人ほど親しくなりやすいということを利用してユーザー同士のコミュニケーションを活性化させることを狙った。
+登録後に入力してもらう項目は、「学部」「学年」「出身地」などの基本情報から、「大学で受けている授業」「趣味」がある。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 友達になりたい人にメッセージを送ることができる機能
+友達になりたい人に対してフレンド申請を送ることができる。申請が承認されればフレンドとなり、メッセージを送り合うことができるようになっている。
